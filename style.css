@@ -11,6 +11,7 @@ body {
     color: #333;
 }
 
+/* Bagian Utama */
 header {
     position: fixed;
     top: 0;
@@ -54,6 +55,57 @@ nav ul li a:hover {
     cursor: pointer;
     margin-left: 15px;
 }
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+    }
+
+    nav ul {
+        display: none; /* Sembunyikan menu pada layar kecil */
+    }
+
+    .menu-toggle {
+        display: block; /* Tampilkan tombol hamburger */
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column; /* Susun elemen header secara vertikal */
+        align-items: flex-start;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .header-icons {
+        margin-top: 10px;
+    }
+}
+
+/* Menu Dropdown pada Layar Kecil */
+.menu-toggle {
+    display: none; /* Default sembunyikan tombol hamburger */
+}
+
+nav ul.dropdown {
+    display: flex;
+    flex-direction: column; /* Susun menu secara vertikal */
+    gap: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    position: absolute;
+    top: 100%; /* Letakkan menu tepat di bawah header */
+    right: 20px;
+    border-radius: 5px;
+}
+
 
 #hero {
     position: relative;
@@ -183,6 +235,7 @@ nav ul li a:hover {
     background-color: #f0f0f0;
 }
 
+/* Bagian Utama */
 #featured-products {
     padding: 50px 20px;
     text-align: center;
@@ -194,6 +247,7 @@ nav ul li a:hover {
     justify-content: center;
     gap: 30px;
     margin-top: 30px;
+    flex-wrap: wrap; /* Menambahkan wrapping agar elemen pindah baris pada layar kecil */
 }
 
 .product-card {
@@ -202,7 +256,7 @@ nav ul li a:hover {
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    width: 250px;
+    width: 250px; /* Ukuran tetap default */
 }
 
 .product-card:hover {
@@ -227,6 +281,39 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
+/* Media Queries untuk Responsivitas */
+@media (max-width: 768px) {
+    .product-grid {
+        gap: 20px; /* Mengurangi jarak antar elemen */
+    }
+    
+    .product-card {
+        width: 200px; /* Ukuran lebih kecil untuk layar menengah */
+    }
+    
+    .product-card img {
+        height: 300px; /* Menyesuaikan proporsi gambar */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        flex-direction: column; /* Elemen ditumpuk vertikal */
+        align-items: center; /* Memusatkan elemen */
+    }
+    
+    .product-card {
+        width: 100%; /* Lebar penuh sesuai layar */
+        max-width: 300px; /* Batas maksimum */
+    }
+    
+    .product-card img {
+        height: 250px; /* Proporsi lebih kecil */
+    }
+}
+
+
+/* Bagian Footer */
 footer {
     background-color: #2c3e50;
     color: white;
@@ -238,6 +325,7 @@ footer {
     display: flex;
     justify-content: center;
     gap: 50px;
+    flex-wrap: wrap; /* Membuat elemen bisa pindah ke baris baru pada layar kecil */
 }
 
 .footer-section {
@@ -252,4 +340,31 @@ footer {
 .copyright {
     margin-top: 30px;
     opacity: 0.7;
+}
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 768px) {
+    .footer-content {
+        gap: 20px; /* Mengurangi jarak antar elemen */
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 30px 10px; /* Mengurangi padding pada layar kecil */
+    }
+
+    .footer-content {
+        flex-direction: column; /* Menumpuk konten secara vertikal */
+        align-items: center; /* Menyusun konten ke tengah */
+    }
+
+    .footer-section {
+        max-width: 100%; /* Membuat setiap section mengisi lebar penuh */
+        margin-bottom: 20px; /* Menambahkan jarak antar section */
+    }
+
+    .copyright {
+        margin-top: 20px;
+    }
 }
